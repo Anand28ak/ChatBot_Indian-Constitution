@@ -7,7 +7,7 @@ from langchain_community.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain_community.chat_models import ChatOpenAI
 
-OPENAI_API_KEY = "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"
+#OPENAI_API_KEY = "Enter OpenAI API Key Here"
 #Upload PDF file
 st.header("Indian Constitution Chatbot")
 
@@ -34,7 +34,7 @@ if file is not None:
     #st.write(chunks)
 
     #generating Embeddings
-    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+#    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
 
     #creating Vector Stores
     vector_store = FAISS.from_texts(chunks,embeddings)
@@ -47,7 +47,7 @@ if file is not None:
         match = vector_store.similarity_search(user_question)
 
         llm = ChatOpenAI(
-            openai_api_key=OPENAI_API_KEY,
+#            openai_api_key=OPENAI_API_KEY,
             temperature = 0,
             max_tokens = 2000,
             model_name="gpt-3.5-turbo"
